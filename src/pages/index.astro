@@ -1,16 +1,76 @@
 ---
+import "../styles/global.css";
+
+const {
+  redirectUrl = import.meta.env.PUBLIC_REDIRECT_URL,
+  companyName = "GRUPO TSI",
+  message = "Nos mudamos a una nueva plataforma",
+} = Astro.props;
 
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es" translate="no">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/src/assets/logo-tsi-tres.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>GRUPO TSI</title>
+  </head>
+
+  <body class="min-h-screen bg-white-900 text-black">
+    <div
+      class="fixed inset-0 bg-no-repeat bg-center bg-contain"
+      style="background-image: url('/src/assets/logo-tsi-tres.png');"
+    >
+    </div>
+
+    <div class="fixed inset-0 bg-white/80"></div>
+
+    <main
+      class="relative z-10 flex min-h-screen items-center justify-center px-6"
+    >
+      <section
+        class="w-full max-w-xl rounded-2xl bg-white/10 backdrop-blur-md shadow-2xl"
+      >
+        <div class="p-10 text-center">
+          <div class="relative inline-block">
+            <div
+              class="absolute inset-0 -z-10 rounded-full
+           bg-red-500 blur-2xl
+           animate-pulse">
+            </div>
+            <img
+              src="/src/assets/logo-tsi-tres.png"
+              alt={`Logo ${companyName}`}
+              class="mx-auto mb-8 h-30"
+            />
+          </div>
+
+          <h1 class="mb-4 text-3xl font-bold tracking-tight text-black">
+            {message}
+          </h1>
+
+          <p class="mb-8 text-sm text-gray-700 leading-relaxed">
+            Hemos actualizado nuestra plataforma para brindarte una mejor
+            experiencia y mayor seguridad.
+          </p>
+          <a
+            href={redirectUrl}
+            class="inline-flex items-center justify-center rounded-lg
+                   bg-red-700 px-6 py-3 text-sm font-medium text-white
+                   transition hover:bg-red-800 focus:outline-none
+                   focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-red"
+          >
+            Ingresar aquí
+          </a>
+
+          <p class="mt-6 text-xs text-gray-500">
+            Si tienes problemas para acceder, copia y pega el enlace en tu
+            navegador.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
